@@ -75,10 +75,44 @@ namespace Lab2CSharp
                 Console.Write(numbers[i] + " ");
             }
         }
+        static void Task3()
+        {
+            Console.WriteLine("Enter size of matrix: ");
+            int n = int.Parse(Console.ReadLine());
+            Console.WriteLine("Your matrix:");
+            double[][] mas2 = new double[n][];
+            for (int i = 0; i < n; i++)
+            {
+                mas2[i] = new double[n];
+                for (int j = 0; j < n; j++)
+                {
+                    mas2[i][j] = Math.Round(r.NextDouble() * 100, 2);
+                    if ((n - 1 - i) == j)
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write(mas2[i][j] + " ");
+                    Console.ResetColor();
+                }
+                Console.WriteLine();
+            }
+            double sum = 0;
+            Console.WriteLine("Elements under the secondary diagonal:");
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = n - i; j < n; j++)
+                {
+                    Console.Write(mas2[i][j] + " ");
+                    sum += mas2[i][j];
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine($"Their avg: {sum / (n * n - n) / 2}");
+
+        }
         static void Main(string[] args)
         {
             //Task1();
             //Task2();
+            //Task3();
         }
     }
 }
