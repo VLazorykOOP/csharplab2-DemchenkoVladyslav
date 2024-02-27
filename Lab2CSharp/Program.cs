@@ -80,13 +80,13 @@ namespace Lab2CSharp
             Console.WriteLine("Enter size of matrix: ");
             int n = int.Parse(Console.ReadLine());
             Console.WriteLine("Your matrix:");
-            double[][] mas2 = new double[n][];
+            int[][] mas2 = new int[n][];
             for (int i = 0; i < n; i++)
             {
-                mas2[i] = new double[n];
+                mas2[i] = new int[n];
                 for (int j = 0; j < n; j++)
                 {
-                    mas2[i][j] = Math.Round(r.NextDouble() * 100, 2);
+                    mas2[i][j] = r.Next() % 101 - 50;
                     if ((n - 1 - i) == j)
                         Console.ForegroundColor = ConsoleColor.Red;
                     Console.Write(mas2[i][j] + " ");
@@ -149,9 +149,9 @@ namespace Lab2CSharp
         static void Main(string[] args)
         {
             //Task1();
-            //Task2();
-            //Task3();
-            Task4();
+            // Task2();
+            Task3();
+            //Task4();
         }
     }
 }
