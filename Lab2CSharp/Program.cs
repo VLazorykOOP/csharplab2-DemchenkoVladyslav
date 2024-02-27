@@ -108,11 +108,50 @@ namespace Lab2CSharp
             Console.WriteLine($"Their avg: {sum / (n * n - n) / 2}");
 
         }
+        static void Task4()
+        {
+            Console.Write("Enter number of rows: ");
+            int n = int.Parse(Console.ReadLine());
+
+            int[][] array = new int[n][];
+
+            Console.WriteLine("Array:");
+            for (int i = 0; i < n; i++)
+            {
+                array[i] = new int[i + 1];
+                for (int j = 0; j <= i; j++)
+                {
+                    array[i][j] = r.Next() % 101 - 50;
+                    Console.Write(array[i][j] + " ");
+                }
+                Console.WriteLine();
+            }
+
+            int[] columnSums = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j <= i; j++)
+                {
+
+                    if (array[i][j] > 0 && array[i][j] % 2 == 0)
+                    {
+                        columnSums[j] += array[i][j];
+                    }
+                }
+            }
+
+            Console.WriteLine("Sums for columns:");
+            for (int j = 0; j < n; j++)
+            {
+                Console.Write(columnSums[j] + " ");
+            }
+        }
         static void Main(string[] args)
         {
             //Task1();
             //Task2();
             //Task3();
+            Task4();
         }
     }
 }
