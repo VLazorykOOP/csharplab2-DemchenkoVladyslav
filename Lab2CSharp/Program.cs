@@ -46,9 +46,39 @@ namespace Lab2CSharp
                 Console.WriteLine();
             }
         }
+        static void Task2()
+        {
+            Console.Write("Enter array size: ");
+            int n = int.Parse(Console.ReadLine());
+
+            double[] numbers = new double[n];
+
+            Console.WriteLine("Array:");
+            for (int i = 0; i < n; i++)
+            {
+                numbers[i] = Math.Round(r.NextDouble() * 100, 2);
+                Console.Write(numbers[i] + " ");
+            }
+
+            int maxIndex = 0;
+            for (int i = 1; i < n; i++)
+            {
+                if (numbers[i] > numbers[maxIndex])
+                {
+                    maxIndex = i;
+                }
+            }
+            (numbers[0], numbers[maxIndex]) = (numbers[maxIndex], numbers[0]);
+            Console.WriteLine("\nSwap result:");
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write(numbers[i] + " ");
+            }
+        }
         static void Main(string[] args)
         {
-            
+            //Task1();
+            //Task2();
         }
     }
 }
