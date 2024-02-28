@@ -23,14 +23,13 @@ namespace Lab2CSharp
                 Console.Write(mas1[i] + " ");
             }
             Console.WriteLine("\n Same work with matrix:");
-            double[][] mas2 = new double[n][];
+            double[,] mas2 = new double[n, n];
             for (int i = 0; i < n; i++)
             {
-                mas2[i] = new double[n];
                 for (int j = 0; j < n; j++)
                 {
-                    mas2[i][j] = Math.Round(r.NextDouble() * 100, 2);
-                    Console.Write(mas2[i][j] + " ");
+                    mas2[i, j] = Math.Round(r.NextDouble() * 100, 2);
+                    Console.Write(mas2[i, j] + " ");
                 }
                 Console.WriteLine();
             }
@@ -39,9 +38,9 @@ namespace Lab2CSharp
             {
                 for (int j = 0; j < n; j++)
                 {
-                    if (mas2[i][j] < f)
-                        mas2[i][j] *= 2;
-                    Console.Write(mas2[i][j] + " ");
+                    if (mas2[i, j] < f)
+                        mas2[i, j] *= 2;
+                    Console.Write(mas2[i, j] + " ");
                 }
                 Console.WriteLine();
             }
@@ -80,16 +79,15 @@ namespace Lab2CSharp
             Console.WriteLine("Enter size of matrix: ");
             int n = int.Parse(Console.ReadLine());
             Console.WriteLine("Your matrix:");
-            int[][] mas2 = new int[n][];
+            int[,] mas2 = new int[n, n];
             for (int i = 0; i < n; i++)
             {
-                mas2[i] = new int[n];
                 for (int j = 0; j < n; j++)
                 {
-                    mas2[i][j] = r.Next() % 101 - 50;
+                    mas2[i, j] = r.Next() % 101 - 50;
                     if ((n - 1 - i) == j)
                         Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write(mas2[i][j] + " ");
+                    Console.Write(mas2[i, j] + " ");
                     Console.ResetColor();
                 }
                 Console.WriteLine();
@@ -100,8 +98,8 @@ namespace Lab2CSharp
             {
                 for (int j = n - i; j < n; j++)
                 {
-                    Console.Write(mas2[i][j] + " ");
-                    sum += mas2[i][j];
+                    Console.Write(mas2[i, j] + " ");
+                    sum += mas2[i, j];
                 }
                 Console.WriteLine();
             }
@@ -148,9 +146,9 @@ namespace Lab2CSharp
         }
         static void Main(string[] args)
         {
-            //Task1();
+            Task1();
             // Task2();
-            Task3();
+            //Task3();
             //Task4();
         }
     }
